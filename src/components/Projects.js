@@ -1,27 +1,43 @@
 //src/components/Projects.js
-import { HomeIcon } from "@heroicons/react/solid";
-import React from "react"
+import React, { useState } from "react";
+import { CubeIcon } from "@heroicons/react/solid";
 import { projects } from "../data";
+import ProjectModal from "./ProjectModal";
 
-export default function Projects(){
-    return (
+export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const openModal = (project) => {
+    setSelectedProject(project);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
+
+  return (
     <section id="projects" className="text-gray-400 bg-gray-900 body-font">
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <div className="flex flex-col w-full mb-20">
-          <HomeIcon className="mx-auto inline-block w-10 mb-4" />
+          <CubeIcon className="mx-auto inline-block w-10 mb-4" />
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Current Listings
+            Experience
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Take a look at some of the current listings we offer/are a aprt of!
+            Take a look at some of my past Internships & Projects.
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
           {projects.map((project) => (
-            <a
-              href={project.link}
+            <div
               key={project.image}
-              className="sm:w-1/2 w-100 p-4">
+              className="sm:w-1/2 w-100 p-4 cursor-pointer"
+              onClick={() => {
+                if (!project.isInternship) {
+                  openModal(project); // Open modal for non-internship projects
+                }
+              }}
+            >
               <div className="flex relative">
                 <img
                   alt="gallery"
@@ -38,10 +54,15 @@ export default function Projects(){
                   <p className="leading-relaxed">{project.description}</p>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal project={selectedProject} onClose={closeModal} />
+      )}
     </section>
-    );
+  );
 }
