@@ -18,21 +18,22 @@ export default function ProjectModal({ project, onClose }) {
   const renderSlide = (slide) => {
     const isImage = /\.(jpeg|jpg|gif|png)$/i.test(slide);
     const isVideo = /\.(mp4|webm|ogg)$/i.test(slide);
-  
+
+    // Shrinking the image and video dimensions further
     if (isImage) {
       return (
         <img
           src={slide}
           alt={`Slide ${currentSlide + 1}`}
-          className="w-full max-w-[1000px] max-h-[600px] object-contain mx-auto mb-2 md:max-w-[80%] lg:max-w-[60%] sm:max-w-[90%]" // Responsive size control for images
+          className="w-4/6" 
         />
       );
     } else if (isVideo) {
       return (
-        <div className="w-full flex justify-center">
+        <div className="w-full h-60 flex justify-center">
           <video
             controls
-            className="w-full max-w-[1000px] max-h-[600px] object-contain mx-auto mb-2 md:max-w-[80%] lg:max-w-[60%] sm:max-w-[90%]" // Responsive size control for videos
+            className="w-4/6"  
           >
             <source src={slide} type="video/mp4" />
             Your browser does not support the video tag.
@@ -43,11 +44,10 @@ export default function ProjectModal({ project, onClose }) {
       return <p>Unsupported media format</p>;
     }
   };
-  
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 overflow-y-auto">
-      <div className="bg-gray-900 text-gray-300 p-6 rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90vh] relative overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+      <div className="bg-gray-900 text-gray-300 p-6 rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90vh] relative overflow-y-auto">
         <button
           onClick={onClose}
           className="text-gray-400 hover:text-gray-200 absolute top-2 right-2 text-2xl"
@@ -63,7 +63,7 @@ export default function ProjectModal({ project, onClose }) {
             <p className="text-center">Slide {currentSlide + 1}</p>
 
             {project.media.length > 1 && (
-              <div className="flex justify-between w-full max-w-[1000px] md:max-w-[80%] lg:max-w-[60%] sm:max-w-[90%]">
+              <div className="flex justify-between w-full">
                 <button
                   onClick={prevSlide}
                   className="bg-gray-700 text-white px-3 py-1 rounded-full"
