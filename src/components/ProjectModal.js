@@ -46,53 +46,55 @@ export default function ProjectModal({ project, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 overflow-y-auto">
-      <div className="bg-gray-900 text-gray-300 p-6 rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90vh] relative overflow-y-auto">
-        <button
-          onClick={onClose}
-          className="text-gray-400 hover:text-gray-200 absolute top-2 right-2 text-2xl"
-        >
-          &times;
-        </button>
+    <div className="fixed inset-0 z-50 bg-black bg-opacity-75 overflow-y-auto"> {/* Removed flex alignment */}
+  <div className="bg-gray-900 text-gray-300 p-6 rounded-lg w-11/12 md:w-3/4 lg:w-1/2 mt-8 mx-auto max-h-full relative overflow-y-auto"> {/* Added mt-8 for top margin and max-h-full for full height */}
+    <button
+      onClick={onClose}
+      className="text-gray-400 hover:text-gray-200 absolute top-2 right-2 text-2xl"
+    >
+      &times;
+    </button>
 
-        <div className="overflow-y-auto max-h-[80vh]">
-          <h2 className="text-2xl font-semibold mb-4 text-center">{project.title}</h2>
+    <div className="max-h-[80vh] overflow-y-auto"> {/* Adjusted height for the content */}
+      <h2 className="text-2xl font-semibold mb-4 text-center">{project.title}</h2>
 
-          <div className="relative mb-4 flex flex-col items-center justify-center">
-            {renderSlide(project.media[currentSlide])}
-            <p className="text-center">Slide {currentSlide + 1}</p>
+      <div className="relative mb-4 flex flex-col items-center justify-center">
+        {renderSlide(project.media[currentSlide])}
+        <p className="text-center">Slide {currentSlide + 1}</p>
 
-            {project.media.length > 1 && (
-              <div className="flex justify-between w-full">
-                <button
-                  onClick={prevSlide}
-                  className="bg-gray-700 text-white px-3 py-1 rounded-full"
-                >
-                  Prev
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="bg-gray-700 text-white px-3 py-1 rounded-full"
-                >
-                  Next
-                </button>
-              </div>
-            )}
+        {project.media.length > 1 && (
+          <div className="flex justify-between w-full">
+            <button
+              onClick={prevSlide}
+              className="bg-gray-700 text-white px-3 py-1 rounded-full"
+            >
+              Prev
+            </button>
+            <button
+              onClick={nextSlide}
+              className="bg-gray-700 text-white px-3 py-1 rounded-full"
+            >
+              Next
+            </button>
           </div>
-
-          <p className="mb-4">{project.description}</p>
-
-          <h3 className="text-xl mb-2">Technologies Used:</h3>
-          <ul className="list-disc list-inside mb-4">
-            {project.technologies.map((tech, index) => (
-              <li key={index}>{tech}</li>
-            ))}
-          </ul>
-
-          <h3 className="text-xl mb-2">Outcomes:</h3>
-          <p>{project.outcomes}</p>
-        </div>
+        )}
       </div>
+
+      <p className="mb-4">{project.summary}</p>
+
+      <h3 className="text-xl mb-2">Technologies Used:</h3>
+      <ul className="list-disc list-inside mb-4">
+        {project.technologies.map((tech, index) => (
+          <li key={index}>{tech}</li>
+        ))}
+      </ul>
+
+      <h3 className="text-xl mb-2">Outcomes:</h3>
+      <p>{project.outcomes}</p>
     </div>
+  </div>
+</div>
+
+
   );
 }
