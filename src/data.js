@@ -13,10 +13,10 @@ export const projects = [
     description:
       "Collaborated on a team to develop an autonomous ground robot with concurrent communication to an autonomous drone for course traversal, focusing on ground robot steering using C++ and python libraries, achieving successful entrance detection data interpretation.",
     summary:
-    " ",
+    "I collaborated with a team to develop an autonomous ground robot that communicated with an accompanying drone to autonomously traverse a defined course. My primary responsibility focused on steering the ground robot, using C++ for motor control and Python libraries to interpret navigation data. The initial goal was to have the robot detect and enter designated boxes along the course. For entrance recognition, we aimed to utilize a YOLOv3 CNN algorithm, which is highly effective for object detection tasks. The drone was trained using YOLOv3 Tiny on a dataset of over 2,000 labeled images, helping it recognize objects, such as box entrances, in real-time. This information was then relayed to the ground robot, which used an ESP32 and IMU to adjust its trajectory based on the drone’s guidance.\n\nHowever, despite the advantages of YOLOv3 for object detection, the Jetson Nano's limited processing power couldn't handle the computational load required to run the neural network efficiently. After several attempts to optimize performance, it became clear that the hardware limitations were hindering the real-time operation of the CNN. As a result, we reverted to a simpler but less sophisticated color detection algorithm with geometric analysis for entrance detection. This fallback method allowed the ground robot to identify box entrances with reasonable accuracy, albeit at the cost of reduced precision compared to YOLOv3.\n\nAlthough we achieved successful entrance detection and basic navigation through the course, hardware limitations ultimately prevented the system from functioning as intended. The Jetson Nano struggled under the load, and various technical challenges, such as loose motor control and IMU calibration issues, compounded the problem. Despite these setbacks, the project showcased the potential of autonomous navigation and the integration of machine learning in robotics, even though the final implementation fell short due to the constraints of the hardware.",
     image: "./IEEE.png",
     media: ["./proj_photos/r5bot/groundbot.jpg","./proj_photos/r5bot/colordetection.jpg","./proj_photos/r5bot/Improved Box Entry(1).mp4",],
-    technologies: ["C++", "Python", "Embedded Systems"],
+    technologies: ["Python", "C++", "Embedded Systems"],
     outcomes: "Achieved successful entrance detection/entry!",
     isInternship: false, // Non-internship
   },
@@ -60,21 +60,30 @@ export const projects = [
     outcomes: "Successful development of an Overdrive Pedal made from electronic components. Great sound too!",
     isInternship: false, // Non-internship
   },
+  {
+    title: "Under Maintenance",
+    subtitle: "More Projects/Experiences actively being published!",
+    description:
+      "Coming Soon!",
+    image: "comingsoon.jpg",
+    isInternship: true,  // Internship flag
+  },
 ];
 
 
 export const testimonials = [
   {
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
+    "I've had the pleasure of working with Tristan since our sophomore year of college, tackling both academic and personal projects together. Throughout this time, Tristan has consistently demonstrated a deep passion for technology and engineering, paired with a remarkable ability to solve complex problems. He is highly collaborative, always eager to contribute and help others succeed. Tristan's dedication, adaptability, and willingness to take on new challenges make him a standout in any team. I have no doubt he will excel in his career as a computer engineer, and any organization would be fortunate to have him.",    
     image: "./franky_headshot.jpg",
     name: "Francisco Nava",
-    company: "Bechtel",
+    company: "Developer @ Bechtel",
     link: "https://www.linkedin.com/in/frankynava/",
   },
+  
   {
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
+    "I have had the pleasure of working closely with Tristan, and I can confidently say that he is an exceptionally dedicated and responsible individual. His commitment to excellence is evident in every project he undertakes. I believe his online portfolio will serve as a testament to his strong work ethic, attention to detail, and unwavering dedication to showcasing his skills and achievements.",
     image: "./castanuela_headshot.jpg",
     name: "Prof. Luis Castanuela",
     company: "UTRGV CECS",
