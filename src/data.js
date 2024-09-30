@@ -67,7 +67,7 @@ export const testimonials = [
   {
     quote:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "./franky_headshot.JPG",
+    image: "./franky_headshot.jpg",
     name: "Francisco Nava",
     company: "Bechtel",
     link: "https://www.linkedin.com/in/frankynava/",
@@ -75,7 +75,7 @@ export const testimonials = [
   {
     quote:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "./castanuela_headshot.JPG",
+    image: "./castanuela_headshot.jpg",
     name: "Prof. Luis Castanuela",
     company: "UTRGV CECS",
     link: "https://www.linkedin.com/in/luis-castanuela-7653b982/",
