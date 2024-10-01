@@ -18,14 +18,14 @@ export default function ProjectModal({ project, onClose }) {
   const renderSlide = (slide) => {
     const isImage = /\.(jpeg|jpg|gif|png)$/i.test(slide);
     const isVideo = /\.(mp4|webm|ogg)$/i.test(slide);
-
-    // Shrinking the image and video dimensions further
+    const isYouTube = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|embed)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/.test(slide);
+    
     if (isImage) {
       return (
         <img
           src={slide}
           alt={`Slide ${currentSlide + 1}`}
-          className="w-4/6" 
+          className="w-4/6"
         />
       );
     } else if (isVideo) {
@@ -33,17 +33,34 @@ export default function ProjectModal({ project, onClose }) {
         <div className="w-full h-60 flex justify-center">
           <video
             controls
-            className="w-4/6"  
+            className="w-4/6"
           >
             <source src={slide} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
       );
+    } else if (isYouTube) {
+      const videoId = slide.match(/(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|embed)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/)[1];
+      const embedLink = `https://www.youtube.com/embed/${videoId}`;
+      
+      return (
+        <div className="w-full h-60 flex justify-center">
+          <iframe
+            src={embedLink}
+            className="w-4/6"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            frameBorder="0"
+          ></iframe>
+        </div>
+      );
     } else {
       return <p>Unsupported media format</p>;
     }
   };
+  
+  
 
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-75 overflow-y-auto"> {/* Removed flex alignment */}
