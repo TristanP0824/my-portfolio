@@ -23,7 +23,7 @@ export default function Navbar(){
           <a href="https://www.linkedin.com/in/tristan-hernandez22/" className="mr-5 hover:text-white">
             LinkedIn
           </a>
-          <a href="https://drive.google.com/file/d/1BK2JkVIqsgbxsp6YzAs4rtFPVh2Po5Qz/view?usp=sharing" className="mr-5 hover:text-white">
+          <a href="https://drive.google.com/file/d/1YFCUIApvlT77alfyokL9GSvx3dI80ODM/view?usp=sharing" className="mr-5 hover:text-white">
             Resume
           </a>
         </nav>
